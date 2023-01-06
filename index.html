@@ -35,7 +35,7 @@
             <p class="subtitle">
                 Keep a record for all your books!
             </p>
-            <button type="button" class="button"> Add Book +</button>
+            <button type="button" class="button js-modal-trigger" data-target="add-book-form" id="add-book-btn"> Add Book +</button>
         </div>
     </section>
 
@@ -66,5 +66,52 @@
             </div>
         </div>
     </section>
+
+    <!-- Modal Form to add aNEw book -->
+    <div id="modal-form" class="modal">
+        <div class="modal-background"></div>
+    
+        <div class="modal-content">
+        <div class="box">
+            <form action="">
+                <div class="field">
+                    <p class="control has-icons-left">
+                        <label for="title" class="label">Title:</label>
+                        <input type="text" class="input" id="title" name="title" placeholder="Book Title">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+                    </p>
+                </div>
+                <div class="field">
+                    <p class="control has-icons-left">
+                        <label for="author" class="label">Author:</label>
+                        <input type="text" class="input" id="author" name="author" placeholder="Author Name">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+                    </p>
+                </div>
+                <div class="field">
+                    <p class="control">
+                        <label for="pages">Number of pages:</label>
+                        <input type="number" class="input" id="pages" min="1">
+                    </p>
+                </div>
+                <label class="checkbox">
+                    <input type="checkbox" name="read" value="read">
+                    <label for="read">I read this book</label>
+                </label>
+                <div class="field">
+                    <div class="control" id="submit-book-info">
+                        <button class="button is-link">Add Book</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        </div>
+    
+        <button class="modal-close is-large"  id="modal-close" aria-label="close"></button>
+    </div>
 </body>
 </html>
