@@ -1,0 +1,15 @@
+/* content style */
+.main-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px, 1fr));
+    gap: 20px;
+}
+
+/* Bulma Post-CSS */
+.container {
+    text-align: center;
+}
+.box {
+    padding-left: 6rem;
+    padding-right: 8rem;
+}
