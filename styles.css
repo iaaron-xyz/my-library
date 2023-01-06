@@ -1,15 +1,15 @@
 /* content style */
 .main-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(200px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit,minmax(300px, 1fr));
+    gap: 10px;
 }
 
 /* Bulma Post-CSS */
 .container {
     text-align: center;
 }
-.box {
+#books-section {
     padding-left: 6rem;
     padding-right: 8rem;
 }

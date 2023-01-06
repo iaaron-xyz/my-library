@@ -29,63 +29,42 @@
     </nav>
 
     <!-- Hero section section -->
-    <section class="hero is-small is-primary">
+    <section class="hero is-small is-link">
         <div class="hero-body container">
             <h1 class="title is-1">My Library</h1>
             <p class="subtitle">
                 Keep a record for all your books!
             </p>
-            <button type="button" class="button"> Add Book</button>
+            <button type="button" class="button"> Add Book +</button>
         </div>
     </section>
 
     <!-- Content section -->
-    <div class="box main-content">
-        <div class="card">
-            <h2 class="subtitle">
-                Book 1
-            </h2>
-            <footer class="card-footer">
-                <a href="#" class="card-footer-item">Edit</a>
-                <a href="#" class="card-footer-item">Delete</a>
-            </footer>
+    <section class="box main-content" id="books-section">
+
+        <!-- Cards  -->
+        <div class="box">
+            <div class="card">
+                <div class="card-content">
+                    <p class="title">
+                        Book Title
+                    </p>
+                    <p class="subtitle">
+                        Author
+                    </p>
+                    <p class="subtitle is-6">
+                        Pages: 100
+                    </p>
+                    <button class="button is-success">
+                        Read
+                    </button>
+                </div>
+                <footer class="card-footer">
+                    <a href="#" class="card-footer-item">Edit</a>
+                    <a href="#" class="card-footer-item has-background-danger has-text-light">Delete</a>
+                </footer>
+            </div>
         </div>
-        <div class="card">
-            <h2 class="subtitle">
-                Book Title
-            </h2>
-            <footer class="card-footer">
-                <a href="#" class="card-footer-item">Edit</a>
-                <a href="#" class="card-footer-item">Delete</a>
-            </footer>
-        </div>
-        <div class="card">
-            <h2 class="subtitle">
-                Book Title
-            </h2>
-            <footer class="card-footer">
-                <a href="#" class="card-footer-item">Edit</a>
-                <a href="#" class="card-footer-item">Delete</a>
-            </footer>
-        </div>
-        <div class="card">
-            <h2 class="subtitle">
-                Book Title
-            </h2>
-            <footer class="card-footer">
-                <a href="#" class="card-footer-item">Edit</a>
-                <a href="#" class="card-footer-item">Delete</a>
-            </footer>
-        </div>
-        <div class="card">
-            <h2 class="subtitle">
-                Book Title
-            </h2>
-            <footer class="card-footer">
-                <a href="#" class="card-footer-item">Edit</a>
-                <a href="#" class="card-footer-item">Delete</a>
-            </footer>
-        </div>
-    </div>
+    </section>
 </body>
 </html>
