@@ -95,7 +95,7 @@ function createBookCards() {
                                         ${readStatus}
                                     </div>
                                     <footer class="card-footer">
-                                        <a href="#" class="card-footer-item">Edit</a>
+                                        <button type="button" class="card-footer-item has-background-dark has-text-light" id="${i}">Edit</button>
                                         <button type="button" onclick="deleteBookCard(event)" class="card-footer-item has-background-danger has-text-light" id="${i}">Delete</button>
                                     </footer>
                                 </div>
