@@ -105,13 +105,8 @@ function createBookCards() {
 
 // Remove an specific book card when delete button clicked
 function deleteBookCard(e) {
-  for (let i = 0; i < boxCards.length; i++) {
-    // Remove from the list the index with value of id that match
-    if (boxCards[i].id == e.target.id) {
-      myLibrary.splice(e.target.id,1);
-      break;
-    }
-  }
+  // Remove from the list the index that match the id value
+  myLibrary.splice(e.target.id, 1);
   // Re-create the book cards with the new list
   createBookCards();
 }
