@@ -16,3 +16,6 @@
     padding-left: 6rem;
     padding-right: 8rem;
 }
+.card-footer-item {
+    border: none;
+}

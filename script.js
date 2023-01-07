@@ -6,7 +6,7 @@ function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
   this.pages = pages;
-  this.read = read; // yes | no
+  this.read = read;
 }
 
 // Book object 1
@@ -24,6 +24,7 @@ let r2 = true;
 let readStatus = ""
 let firstLoad = true;
 
+const boxCards = document.getElementsByClassName("box-card");
 const newBookBtn = document.getElementById("new-book-btn");
 const addBookInfoBtn = document.getElementById("add-book-info-btn");
 const booksSection = document.getElementById("books-section");
@@ -72,11 +73,11 @@ function createBookCards() {
       readStatus = `<button type="button" class="button is-success">Read</button>`
     }
     else {
-      readStatus = `<button type="button" class="button is-danger">
+      readStatus = `<button type="button" class="button is-black">
       Not Read</button>`
     }
     // Book Card HTML
-    booksSection.innerHTML += `<div class="box">
+    booksSection.innerHTML += `<div class="box box-card" id="${i}">
                                 <div class="card">
                                     <div class="card-content">
                                         <p class="title">
@@ -92,11 +93,24 @@ function createBookCards() {
                                     </div>
                                     <footer class="card-footer">
                                         <a href="#" class="card-footer-item">Edit</a>
-                                        <a href="#" class="card-footer-item has-background-danger has-text-light">Delete</a>
+                                        <button type="button" onclick="deleteBookCard(event)" class="card-footer-item has-background-danger has-text-light" id="${i}">Delete</button>
                                     </footer>
                                 </div>
                             </div>`
   }
+}
+
+// Remove an specific book card when delete button clicked
+function deleteBookCard(e) {
+  for (let i = 0; i < boxCards.length; i++) {
+    // Remove from the list the index with value of id that match
+    if (boxCards[i].id == e.target.id) {
+      myLibrary.splice(e.target.id,1);
+      break;
+    }
+  }
+  // Re-create the book cards with the new list
+  createBookCards();
 }
 
 // Functions to open and close a modal
