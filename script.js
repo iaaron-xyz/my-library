@@ -10,18 +10,19 @@ function Book(title, author, pages, read) {
 }
 
 // Book object 1
-let author = "J.R.R. Tolkien";
-let title = "The Hobbit";
-let pages = "295";
-let read = "no";
+let a1 = "J.R.R. Tolkien";
+let t1 = "The Hobbit";
+let p1 = "295";
+let r1 = false;
 // Book object 2
-let author2 = "Cixin Liu";
-let title2 = "The 3 Body Problem";
-let pages2 = "408";
-let read2 = "yes";
+let a2 = "Cixin Liu";
+let t2 = "The 3 Body Problem";
+let p2 = "408";
+let r2 = true;
 
 // Variables
 let readStatus = ""
+let firstLoad = true;
 
 const newBookBtn = document.getElementById("new-book-btn");
 const addBookInfoBtn = document.getElementById("add-book-info-btn");
@@ -34,10 +35,10 @@ const modalForm = document.getElementById("modal-form");
  */
 
 //  Initial books
-addBookToLibrary();
-getBooksFromLibrary();
+myLibrary.push(new Book(t1, a1, p1, r1));
+myLibrary.push(new Book(t2, a2, p2, r2));
 createBookCards();
-
+// Interactive events
 newBookBtn.addEventListener('click', openModal);
 modalClose.addEventListener('click', closeModal);
 
@@ -45,26 +46,29 @@ modalClose.addEventListener('click', closeModal);
  * FUNCTIONS
  */
 
-// Append the info books
-function addBookToLibrary() {
-  myLibrary.push(new Book(title, author, pages, read));
-  myLibrary.push(new Book(title2, author2, pages2, read2));
-  console.log(myLibrary);
+// Add new book info to the list
+function saveInfoBook(event) {
+  // Prevent reload the page when submiting
+  event.preventDefault();
+  // Hide Modal
+  closeModal();
+  // Append new book info
+  myLibrary.push(new Book(
+    event.target.elements.title.value,
+    event.target.elements.author.value,
+    event.target.elements.pages.value,
+    event.target.elements.read.checked
+  ));
+  // Create new card with the new info
+  createBookCards();
 }
-// Query the list of books
-function getBooksFromLibrary() {
-  myLibrary.forEach(printBookInfo);
-}
-// Print object elements
-function printBookInfo(book) {
-  console.log(`title: ${book.title}, author: ${book.author}, pages: ${book.pages}, read: ${book.read}`);
-}
+
 // Create the book cards
 function createBookCards() {
   booksSection.innerHTML = "";
   for (let i = 0; i < myLibrary.length; i++) {
     // Read status options
-    if (myLibrary[i].read === "yes") {
+    if (myLibrary[i].read) {
       readStatus = `<button type="button" class="button is-success">Read</button>`
     }
     else {
