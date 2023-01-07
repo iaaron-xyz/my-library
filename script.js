@@ -20,9 +20,14 @@ let title2 = "The 3 Body Problem";
 let pages2 = "408";
 let read2 = "yes";
 
-const addBookBtn = document.getElementById("add-book-btn");
-const modalForm = document.getElementById("modal-form");
+// Variables
+let readStatus = ""
+
+const newBookBtn = document.getElementById("new-book-btn");
+const addBookInfoBtn = document.getElementById("add-book-info-btn");
+const booksSection = document.getElementById("books-section");
 const modalClose = document.getElementById("modal-close");
+const modalForm = document.getElementById("modal-form");
 
 /**
  * MAIN DOM MANIPULATION
@@ -31,8 +36,9 @@ const modalClose = document.getElementById("modal-close");
 //  Initial books
 addBookToLibrary();
 getBooksFromLibrary();
+createBookCards();
 
-addBookBtn.addEventListener('click', openModal);
+newBookBtn.addEventListener('click', openModal);
 modalClose.addEventListener('click', closeModal);
 
 /**
@@ -52,6 +58,41 @@ function getBooksFromLibrary() {
 // Print object elements
 function printBookInfo(book) {
   console.log(`title: ${book.title}, author: ${book.author}, pages: ${book.pages}, read: ${book.read}`);
+}
+// Create the book cards
+function createBookCards() {
+  booksSection.innerHTML = "";
+  for (let i = 0; i < myLibrary.length; i++) {
+    // Read status options
+    if (myLibrary[i].read === "yes") {
+      readStatus = `<button type="button" class="button is-success">Read</button>`
+    }
+    else {
+      readStatus = `<button type="button" class="button is-danger">
+      Not Read</button>`
+    }
+    // Book Card HTML
+    booksSection.innerHTML += `<div class="box">
+                                <div class="card">
+                                    <div class="card-content">
+                                        <p class="title">
+                                            ${myLibrary[i].title}
+                                        </p>
+                                        <p class="subtitle">
+                                            ${myLibrary[i].author}
+                                        </p>
+                                        <p class="subtitle is-6">
+                                            Pages: ${myLibrary[i].pages}
+                                        </p>
+                                        ${readStatus}
+                                    </div>
+                                    <footer class="card-footer">
+                                        <a href="#" class="card-footer-item">Edit</a>
+                                        <a href="#" class="card-footer-item has-background-danger has-text-light">Delete</a>
+                                    </footer>
+                                </div>
+                            </div>`
+  }
 }
 
 // Functions to open and close a modal
