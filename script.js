@@ -1,24 +1,15 @@
-// Book collection list
+// Book collection list - Database
 let myLibrary = []
 
-// Book Object Constructor
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
+// Book Class Declaration
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
 }
-
-// Book object 1
-let a1 = "J.R.R. Tolkien";
-let t1 = "The Hobbit";
-let p1 = "295";
-let r1 = false;
-// Book object 2
-let a2 = "Cixin Liu";
-let t2 = "The 3 Body Problem";
-let p2 = "408";
-let r2 = true;
 
 // Variables
 let readStatus = ""
@@ -38,8 +29,8 @@ const modalForm = document.getElementById("modal-form");
  */
 
 //  Initial books
-myLibrary.push(new Book(t1, a1, p1, r1));
-myLibrary.push(new Book(t2, a2, p2, r2));
+myLibrary.push(new Book("The Three Body Problem", "Cixin Liu", "408", true));
+myLibrary.push(new Book("Triple", "Kent Follet", "470", false));
 createBookCards();
 // Interactive events
 newBookBtn.addEventListener('click', openModal);
