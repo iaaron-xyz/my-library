@@ -56,6 +56,11 @@ function saveInfoBook(event) {
   ));
   // Create new card with the new info
   createBookCards();
+  // Clear the form fields
+  document.querySelector('#title').value = '';
+  document.querySelector('#author').value = '';
+  document.querySelector('#pages').value = '';
+  document.querySelector('#read').checked = false;
 }
 
 // Create the book cards
